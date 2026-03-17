@@ -80,28 +80,7 @@ git clone https://github.com/SummerKaze/skill-arkts-syntax-assistant.git
 
 ### 常见问题速查
 
-**Q: 如何处理 JSON.parse 返回值？**
-
-```typescript
-// 错误
-let data = JSON.parse(str);
-
-// 正确
-let data: Record<string, Object> = JSON.parse(str);
-```
-
-**Q: 如何定义对象类型？**
-
-```typescript
-// TS 写法（ArkTS 不支持）
-type Person = { name: string, age: number }
-
-// ArkTS 写法
-interface Person {
-  name: string;
-  age: number;
-}
-```
+对比示例与更多问题说明已集中到 `SKILL.md` 和 `references/`，避免内容重复与漂移。
 
 **Q: TypeScript 到 ArkTS 迁移规则速查**
 
