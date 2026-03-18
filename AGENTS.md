@@ -2,24 +2,47 @@
 
 ## 项目结构与模块组织
 
-本仓库以 `skills/` 为核心，每个子目录代表一个独立技能包（例如 `arkts-syntax-assistant-zh`、`harmony-dev`、`markitdown-skill`）。
-每个技能通常包含 `SKILL.md`（入口说明）、`references/`（参考文档）、可选 `scripts/`（自动化脚本）与 `assets/`（模板或静态资源）。
+本仓库以 `skills/` 为核心，每个子目录代表一个独立技能包（例如 `arkts-syntax-assistant-zh`、`harmony-dev`、`markitdown-skill`、`novel-writer`）。
+每个技能通常包含：
+- `SKILL.md`：入口说明，以 YAML 前置元数据开头（`name`、`description`、`license` 等），后跟 Markdown 内容
+- `references/`：补充文档与案例（Markdown 或相关格式）
+- `scripts/`：自动化脚本（可选；Python、PowerShell、Bash，按技能需要）
+- `assets/`：模板或静态资源（可选）
 根目录仅保留轻量文件：`README.md`、`.gitignore`、本指南。新增技能请放在 `skills/<skill-name>/`，避免把实现散落到根目录。
 
 ## 构建、测试与开发命令
 
-仓库当前没有统一的根级构建系统，按技能目录执行命令：
+仓库当前没有统一的根级构建系统，按技能目录执行命令。常见模式：
 
 - `Get-ChildItem skills`：快速查看已安装技能。
 - `rg -n "pattern" skills`：在技能文档或脚本中定位内容。
-- `powershell -ExecutionPolicy Bypass -File skills/arkts-syntax-assistant-zh/scripts/run.ps1`：运行该技能示例脚本。
-- `cd skills/markitdown-skill; npm install`：安装 Node 依赖（仅该技能需要时）。
-提交前至少运行与改动相关的脚本或示例，确保文档命令可复现。
+- PowerShell 脚本：`powershell -ExecutionPolicy Bypass -File skills/arkts-syntax-assistant-zh/scripts/run.ps1`
+- Python 脚本：`python skills/markitdown-skill/scripts/batch_convert.py <args>`
+- Node 技能（如需）：`cd skills/markitdown-skill; npm install`
+提交前至少运行与改动相关的脚本或示例，确保文档命令可复现。每个技能的 `SKILL.md` 包含具体使用说明。
 
 ## 代码风格与命名规范
 
+### 文件与目录命名
 Markdown 文档优先使用简洁标题与短段落，路径、命令、标识符保持原文。脚本文件遵循语言默认风格（PowerShell/ Python/ Shell）。
 命名采用小写连字符：`skill-name`；文档名使用语义化名称，如 `reference.md`、`USAGE-GUIDE.md`。避免使用含糊命名（如 `test1.md`、`new.ps1`）。
+
+### SKILL.md 元数据结构
+每个 `SKILL.md` 须以 YAML 前置元数据开头，示例：
+```yaml
+---
+name: skill-name
+description: |-
+  简要描述，支持多行说明
+license: MIT
+tags:
+  - tag1
+  - tag2
+allowed-tools: [Bash, PowerShell]
+---
+```
+必需字段：`name`、`description`；可选字段：`license`、`tags`、`allowed-tools`、`metadata`。
+后续为 Markdown 内容，通常包含工作流、使用场景或快速开始指南。
 
 ## 测试指南
 
