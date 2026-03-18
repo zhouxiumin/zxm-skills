@@ -1,32 +1,38 @@
-# 初识ArkTS语言
+# 初识 ArkTS 语言（快速入口）
 
-<!--Kit: ArkTS-->
-<!--Subsystem: ArkCompiler-->
-<!--Owner: @liwentao_uiw-->
-<!--Designer: @qyhuo32-->
-<!--Tester: @kirl75; @zsw_zhushiwei-->
-<!--Adviser: @zhang_yixin13-->
+本页用于快速定位 ArkTS 迁移与开发资料，适合在回答问题前先建立上下文。
 
-ArkTS是OpenHarmony应用的默认开发语言，在[TypeScript](https://www.typescriptlang.org/)（简称TS）生态基础上做了扩展，保持TS的基本风格。通过规范定义，从而强化了开发期的静态检查和分析，提升了程序执行的稳定性和性能。
+## 你应该先看哪篇
 
-![ArkTS](figures/arkts.png)
+- 需要 3 分钟了解 ArkTS 与 TS 差异：`typescript-to-arkts-migration-guide.md`
+- 需要快速修具体报错：`common-questions.md`
+- 需要看完整语法细节：`introduction-to-arkts.md`
+- 需要理解为什么会有这些限制：`arkts-migration-background.md`
+- 需要性能导向建议：`arkts-high-performance-programming.md`
+- 需要实战迁移案例：`arkts-more-cases.md`
 
-深入学习请看[ArkTS学习路线](https://developer.huawei.com/consumer/cn/arkts/)和[ArkTS视频课程](https://developer.huawei.com/consumer/cn/training/course/slightMooc/C101717496870909384?pathId=101667550095504391)。
+## ArkTS 核心差异（相对 TypeScript）
 
+1. 强制静态类型，减少运行时类型开销。
+2. 禁止运行时动态改变对象布局。
+3. 限制部分运算符语义以提升可优化性。
+4. 不支持 structural typing 等高动态特性。
 
-自API version 10起，ArkTS进一步通过规范强化静态检查和分析，其主要特性及标准TS的差异包括[从TypeScript到ArkTS的适配规则](typescript-to-arkts-migration-guide.md)：
+## 回答问题时的建议顺序
 
+1. 先判断问题属于“语法限制 / 迁移改写 / 性能优化 / E2E 调试”。
+2. 给出最小可运行示例（错误写法 vs 正确写法）。
+3. 解释限制背后的性能或稳定性原因。
+4. 如需深入，再跳转到对应参考文档。
 
-- 强制使用静态类型：静态类型是ArkTS最重要的特性之一。如果使用静态类型，那么程序中变量的类型就是确定的。同时，由于所有类型在程序实际运行前都是已知的，编译器可以验证代码的正确性，从而减少运行时的类型检查，有助于性能提升。
+## 常见触发词
 
-- 禁止在运行时改变对象布局：为实现最优性能，ArkTS禁止在程序执行期间更改对象布局。
+- 文件与上下文：`.ets`、`@ohos`、HarmonyOS/OpenHarmony
+- 迁移类：`any`、`unknown`、`for..in`、解构、索引签名、`globalThis`
+- 工程类：`hvigorw`、`hdc`、`hilog`、CodeLinter
 
-- 限制运算符语义：为获得更好的性能并鼓励编写清晰的代码，ArkTS限制了部分运算符的语义。例如，一元加法运算符仅能作用于数字，不能用于其他类型变量。
+## 延伸资料
 
-- 不支持Structural typing：对Structural typing的支持需要在语言、编译器和运行时进行大量的考虑和仔细的实现，当前ArkTS不支持该特性。根据实际场景的需求和反馈，后续会重新考虑是否支持Structural typing。
+- ArkTS 官方学习入口：https://developer.huawei.com/consumer/cn/arkts/
+- ArkTS 视频课程：https://developer.huawei.com/consumer/cn/training/course/slightMooc/C101717496870909384?pathId=101667550095504391
 
-ArkTS兼容TS/JavaScript（简称JS）生态，开发者可以使用TS/JS进行开发或复用已有代码。OpenHarmony系统对TS/JS支持的详细情况见[兼容TS/JS的约束](arkts-migration-background.md#方舟运行时兼容tsjs)。
-
-未来，ArkTS会结合应用开发/运行的需求持续演进，逐步增强并行和并发能力、扩展系统类型，以及引入分布式开发范式等更多特性。
-
-如需深入了解ArkTS语言，可参考[ArkTS具体指南](../arkts-utils/arkts-overview.md)。

@@ -15,7 +15,7 @@
 // 错误
 let data = JSON.parse(str);
 
-// 正确
+// 正确（建议根据实际结构定义更精确类型）
 let data: Record<string, Object> = JSON.parse(str);
 ```
 

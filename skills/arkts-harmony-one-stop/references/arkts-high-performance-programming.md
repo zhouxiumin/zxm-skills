@@ -1,15 +1,8 @@
 # ArkTS高性能编程实践
 
-<!--Kit: ArkTS-->
-<!--Subsystem: ArkCompiler-->
-<!--Owner: @zhanyi819-->
-<!--Designer: @qyhuo32-->
-<!--Tester: @kirl75; @zsw_zhushiwei-->
-<!--Adviser: @zhang_yixin13-->
-
 ## 概述
 
-本文提供应用性能敏感场景下的高性能编程建议，帮助开发者编写高性能应用。高性能编程实践是在开发过程中总结的一些高性能写法和建议。在实现业务功能时，应同步思考并理解高性能写法的原理，并将其应用于代码逻辑中。关于ArkTS编程规范，请参考[ArkTS编程规范](./arkts-coding-style-guide.md)。
+本文提供应用性能敏感场景下的高性能编程建议，帮助开发者编写高性能应用。高性能编程实践是在开发过程中总结的一些高性能写法和建议。在实现业务功能时，应同步思考并理解高性能写法的原理，并将其应用于代码逻辑中。关于ArkTS编程规范，请参考[ArkTS 语法总览](introduction-to-arkts.md)。
 
 ## 声明与表达式
 
@@ -244,3 +237,5 @@ function sum(num: number): number {
   return sum;
 }
 ```
+
+

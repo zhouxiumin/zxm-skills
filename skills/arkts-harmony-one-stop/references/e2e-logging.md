@@ -1,47 +1,42 @@
 # 运行时日志检查
 
-使用 hilog 工具查看应用的运行时日志，用于调试和问题诊断。
+使用 `hilog` 查看运行时日志，用于调试和问题诊断。
 
 ## 基本用法
 
 ### 1. 清理旧日志
 
-在运行应用前，建议先清理之前的日志，避免干扰：
-
 ```bash
 hdc shell hilog -r
 ```
 
-### 2. 筛选日志
-
-使用正则表达式筛选特定标签的日志：
+### 2. 按标签筛选日志
 
 ```bash
 hdc shell hilog --regex <标签> --exit
 ```
 
 参数说明：
-- `--regex <标签>`: 使用正则表达式匹配日志标签
-- `--exit`: 输出当前缓冲区的日志后退出（不持续监听）
+
+- `--regex <标签>`: 正则匹配日志标签
+- `--exit`: 输出当前缓冲区后退出
 
 ### 示例
 
-筛选包含自定义 emoji 标签 🔘 的日志：
-
 ```bash
-hdc shell hilog --regex 🔘 --exit
+hdc shell hilog --regex APP_DEBUG --exit
 ```
 
 ## 推荐实践
 
-### 使用自定义标签
+### 使用统一标签
 
-在代码中使用独特的标签（如 emoji）便于日志筛选：
+建议在代码中使用稳定且可检索的 ASCII 标签，例如 `APP_DEBUG`。
 
 ```typescript
 import hilog from '@ohos.hilog';
 
-const TAG = '🔘';  // 使用 emoji 作为标签
+const TAG = 'APP_DEBUG';
 
 hilog.info(0x0000, TAG, 'Application started');
 hilog.debug(0x0000, TAG, 'Button clicked: %{public}s', buttonName);
@@ -50,24 +45,21 @@ hilog.error(0x0000, TAG, 'Error occurred: %{public}s', errorMessage);
 
 ### 日志级别
 
-hilog 支持多个日志级别：
 - `debug`: 调试信息
 - `info`: 一般信息
-- `warn`: 警告信息
-- `error`: 错误信息
+- `warn`: 警告
+- `error`: 错误
 - `fatal`: 致命错误
 
 ## 常用命令
 
-### 持续监听日志
-
-如果需要实时查看日志（不使用 --exit）：
+### 持续监听
 
 ```bash
-hdc shell hilog --regex <标签>
+hdc shell hilog --regex APP_DEBUG
 ```
 
-按 Ctrl+C 停止监听。
+按 `Ctrl+C` 结束监听。
 
 ### 查看所有日志
 
@@ -75,7 +67,7 @@ hdc shell hilog --regex <标签>
 hdc shell hilog
 ```
 
-### 清空日志缓冲区
+### 清空缓冲区
 
 ```bash
 hdc shell hilog -r
@@ -83,15 +75,14 @@ hdc shell hilog -r
 
 ## 调试流程
 
-1. **清理日志** - 运行 `hdc shell hilog -r` 清空旧日志
-2. **运行应用** - 启动应用并执行操作
-3. **查看日志** - 使用 `hilog --regex` 筛选相关日志
-4. **分析问题** - 根据日志输出定位问题
-5. **修改代码** - 修复问题后重新编译和部署
-6. **重复验证** - 重复以上步骤直到问题解决
+1. 清理日志
+2. 运行应用并复现问题
+3. 按标签筛选日志
+4. 分析调用链与状态
+5. 修改代码并重新验证
 
-**⚠️ 重要提示**：如果在调试过程中发现日志信息不足以定位问题（例如缺少关键步骤的日志、无法判断代码执行路径），应立即回到编写代码步骤，在代码的关键位置添加更多 debug 日志。使用自定义 emoji Tag 可以方便后续筛选。充足的日志信息是高效调试的基础，不要在日志不足的情况下浪费时间猜测问题。
+如果日志信息不足（关键路径缺失、状态不可见），应先补充日志点，再继续调试。
 
 ## 参考文档
 
-完整文档见：[HarmonyOS 开发工具 - hilog](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hilog)
+- HarmonyOS 开发工具 - hilog: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hilog

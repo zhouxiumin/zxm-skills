@@ -8,6 +8,12 @@
 <!--Adviser: @zhang_yixin13-->
 
 ArkTS规范约束了TypeScript（简称TS）中影响开发正确性或增加运行时开销的特性。本文罗列了ArkTS中限制的TS特性，并提供重构代码的建议。ArkTS保留了TS大部分语法特性，未在本文中约束的TS特性，ArkTS完全支持。例如，ArkTS支持自定义装饰器，语法与TS一致。按本文约束进行代码重构后，代码仍为合法有效的TS代码。
+## 快速导航
+
+- 迁移总览与分级：见“概述”与“级别”
+- 规则全集与示例：见“约束说明”
+- 场景化改造案例：见 [arkts-more-cases.md](arkts-more-cases.md)
+- 背景与设计动机：见 [arkts-migration-background.md](arkts-migration-background.md)
 
 **示例**
 
@@ -3301,3 +3307,5 @@ function f() {
   bar(e7);                  // OK，ESObject类型变量传给跨语言调用的函数
 }
 ```
+
+

@@ -8,6 +8,12 @@
 <!--Adviser: @zhang_yixin13-->
 
 本文通过具体应用场景中的案例，提供在ArkTS语法规则下将TS代码适配成ArkTS代码的建议。各章以ArkTS语法规则的英文名称命名，每个案例展示适配前的TS代码和适配后的ArkTS代码。
+## 快速导航
+
+- 高优先规则：`arkts-no-any-unknown`、`arkts-no-indexed-signatures`、`arkts-no-for-in`
+- 严格类型问题：`arkts-strict-typing`、`arkts-strict-typing-required`
+- 互操作问题：`arkts-no-tsdeps`、`arkts-limited-esobj`
+- 其他背景说明：见 [arkts-migration-background.md](arkts-migration-background.md)
 
 ## arkts-identifiers-as-prop-names
 
@@ -2484,3 +2490,4 @@ export struct ForEachCom {
   }
 }
 ```
+
