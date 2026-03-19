@@ -25,6 +25,7 @@ description: |-
 3. 编译错误修复与构建验证
 4. CodeLinter 代码质量检查与门禁集成
 5. HarmonyOS 端到端开发循环（构建、部署、运行、截图、交互、日志）
+6. HarmonyOS 调试命令选型与排障
 
 ## 1) 语法迁移流程
 
@@ -106,9 +107,36 @@ description: |-
 - `references/e2e-interaction.md`
 - `references/e2e-logging.md`
 
+## 6) 调试命令选型与排障
+
+当用户请求“命令行调试、设备排障、性能分析、日志定位、抓取系统状态”时执行：
+
+1. 先确认属于连接、应用管理、日志、资源状态、trace、采样分析还是综合调优问题。
+2. 先读取 `references/e2e-debugging-commands.md` 做选型，不要一上来把所有调试命令文档一次性读入。
+3. 根据命中的工具，再按需只读取一个或少数几个子文档：
+   - `references/debugging-commands/hdc.md`
+   - `references/debugging-commands/aa.md`
+   - `references/debugging-commands/bm.md`
+   - `references/debugging-commands/hilog.md`
+   - `references/debugging-commands/hidumper.md`
+   - `references/debugging-commands/hitrace.md`
+   - `references/debugging-commands/hiperf.md`
+   - `references/debugging-commands/hiprofiler.md`
+4. 优先按 `hdc -> aa/bm -> hilog -> hidumper -> hitrace/hiperf -> hiprofiler` 的顺序选型。
+5. 先给最小可执行命令，再根据输出决定是否升级工具。
+6. 如果用户只问安装运行或日志查看，不要额外加载无关的性能分析文档。
+
+优先查阅：
+
+- `references/e2e-debugging-commands.md`
+- `references/debugging-commands/`
+- `references/e2e-install-run.md`
+- `references/e2e-logging.md`
+
 ## 回答规范
 
 1. 优先给可运行示例，避免只给抽象描述。
 2. 对不支持能力必须给替代实现，不留“死胡同”。
 3. 多步排障时，明确当前步骤、预期结果、下一步动作。
 4. 引用参考文档时给出具体文件路径，减少来回跳转。
+
