@@ -56,7 +56,7 @@ def generate_image(prompt, output_path, input_image_path=None):
     api_key = get_api_key()
     api_base_url = get_api_base_url().rstrip("/")
 
-    url = f"{api_base_url}/v1beta/models/nano-banana-pro-preview:generateContent?key={api_key}"
+    url = f"{api_base_url}/v1beta/models/gemini-3.1-flash-image-preview-2k:generateContent?key={api_key}"
 
     # 构造请求内容片段
     parts = [{"text": prompt}]
