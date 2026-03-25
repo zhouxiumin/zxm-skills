@@ -1,93 +1,96 @@
 ---
 name: gemini-image-simple
 version: 1.1.0
-description: Generate and edit images with Gemini API using pure Python stdlib. Zero dependencies - works on locked-down environments where pip/uv aren't available.
+description: 使用纯 Python 标准库通过 Gemini API 生成和编辑图片。零依赖，适用于无法使用 pip/uv 的受限环境。
 metadata:
   openclaw:
     emoji: "🎨"
     requires:
-      env: ["GEMINI_API_KEY"]
+      env: ["ZXM_GEMINI_API_KEY", "ZXM_GEMINI_API_BASE_URL"]
 ---
 
 # Gemini Image Simple
 
-Generate and edit images using Google's **Nano Banana Pro** (Gemini 3 Pro Image) - the highest quality image generation model.
+使用 Google 的 **Nano Banana Pro**（Gemini 3 Pro Image）生成和编辑图片，这是当前画质最高的图像生成模型。
 
-## Why This Skill
+## 为什么用这个 Skill
 
-| Feature | This Skill | Others (nano-banana-pro, etc.) |
+| 特性 | 这个 Skill | 其他方案（nano-banana-pro 等） |
 |---------|------------|-------------------------------|
-| **Dependencies** | None (stdlib only) | google-genai, pillow, etc. |
-| **Requires pip/uv** | ❌ No | ✅ Yes |
-| **Works on Fly.io free** | ✅ Yes | ❌ Fails |
-| **Works in containers** | ✅ Yes | ❌ Often fails |
-| **Image generation** | ✅ Full | ✅ Full |
-| **Image editing** | ✅ Yes | ✅ Yes |
-| **Setup complexity** | Just set API key | Install packages first |
+| **依赖** | 无（仅 stdlib） | google-genai、pillow 等 |
+| **需要 pip/uv** | ❌ 不需要 | ✅ 需要 |
+| **能在 Fly.io free 跑** | ✅ 可以 | ❌ 会失败 |
+| **能在容器里跑** | ✅ 可以 | ❌ 经常失败 |
+| **图片生成** | ✅ 完整支持 | ✅ 完整支持 |
+| **图片编辑** | ✅ 支持 | ✅ 支持 |
+| **配置复杂度** | 只要设置 API key | 先安装依赖包 |
 
-**Bottom line:** This skill works anywhere Python 3 exists. No package managers, no virtual environments, no permission issues.
+**一句话总结：** 只要有 Python 3，这个 skill 基本就能跑。不需要包管理器、不需要虚拟环境，也少碰权限问题。
 
-## Quick Start
+## 快速开始
 
 ```bash
-# Generate
+# 生成
 python3 /data/clawd/skills/gemini-image-simple/scripts/generate.py "A cat wearing a tiny hat" cat.png
 
-# Edit existing image  
+# 编辑现有图片
 python3 /data/clawd/skills/gemini-image-simple/scripts/generate.py "Make it sunset lighting" edited.png --input original.png
 ```
 
-## Usage
+## 用法
 
-### Generate new image
+### 生成新图片
 
 ```bash
 python3 {baseDir}/scripts/generate.py "your prompt" output.png
 ```
 
-### Edit existing image
+### 编辑现有图片
 
 ```bash
 python3 {baseDir}/scripts/generate.py "edit instructions" output.png --input source.png
 ```
 
-Supported input formats: PNG, JPG, JPEG, GIF, WEBP
+支持的输入格式：PNG、JPG、JPEG、GIF、WEBP
 
-## Environment
+## 环境变量
 
-Set `GEMINI_API_KEY` environment variable. Get one at https://aistudio.google.com/apikey
+设置以下环境变量：
 
-## How It Works
+- `ZXM_GEMINI_API_KEY`：Gemini API Key，可在 https://aistudio.google.com/apikey 获取。
+- `ZXM_GEMINI_API_BASE_URL`：Gemini API 基础地址，默认值为 `https://generativelanguage.googleapis.com`。
 
-Uses **Nano Banana Pro** (`nano-banana-pro-preview`) - Google's highest quality image generation model:
-- Pure `urllib.request` for HTTP (no requests library)
-- Pure `json` for parsing (stdlib)
-- Pure `base64` for encoding (stdlib)
+## 工作原理
 
-That's it. No external packages. Works on any Python 3.10+ installation.
+使用 **Nano Banana Pro**（`nano-banana-pro-preview`），也就是 Google 当前画质最高的图像生成模型：
+- 用纯 `urllib.request` 发 HTTP 请求（不依赖 requests）
+- 用纯 `json` 做解析（stdlib）
+- 用纯 `base64` 做编码（stdlib）
 
-## Model
+就这些。没有外部依赖，任何 Python 3.10+ 环境都能跑。
 
-Currently using: `nano-banana-pro-preview` (also known as Gemini 3 Pro Image)
+## 模型
 
-Other available models (can be changed in generate.py if needed):
-- `gemini-3-pro-image-preview` - Same as Nano Banana Pro
+当前使用：`nano-banana-pro-preview`（也叫 Gemini 3 Pro Image）
+
+其他可用模型（如有需要，可在 `generate.py` 中修改）：
+- `gemini-3-pro-image-preview` - 与 Nano Banana Pro 相同
 - `imagen-4.0-ultra-generate-001` - Imagen 4.0 Ultra
 - `imagen-4.0-generate-001` - Imagen 4.0
-- `gemini-2.5-flash-image` - Gemini 2.5 Flash with image gen
+- `gemini-2.5-flash-image` - 支持图像生成的 Gemini 2.5 Flash
 
-## Examples
+## 示例
 
 ```bash
-# Landscape
+# 风景
 python3 {baseDir}/scripts/generate.py "Misty mountains at sunrise, photorealistic" mountains.png
 
-# Product shot
+# 产品图
 python3 {baseDir}/scripts/generate.py "Minimalist product photo of a coffee cup, white background" coffee.png
 
-# Edit: change style
+# 编辑：切换风格
 python3 {baseDir}/scripts/generate.py "Convert to watercolor painting style" watercolor.png --input photo.jpg
 
-# Edit: add element
+# 编辑：添加元素
 python3 {baseDir}/scripts/generate.py "Add a rainbow in the sky" rainbow.png --input landscape.png
 ```

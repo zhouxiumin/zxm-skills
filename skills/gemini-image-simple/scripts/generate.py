@@ -6,7 +6,7 @@ Usage:
     python3 generate.py "prompt" output.png
     python3 generate.py "edit instructions" output.png --input original.png
 
-Requires GEMINI_API_KEY environment variable.
+Requires ZXM_GEMINI_API_KEY environment variable.
 """
 
 import os
@@ -19,22 +19,27 @@ from pathlib import Path
 
 
 def get_api_key():
-    """Get API key from environment."""
-    key = os.environ.get("GEMINI_API_KEY")
+    """从环境变量中获取 API Key。"""
+    key = os.environ.get("ZXM_GEMINI_API_KEY")
     if not key:
-        print("Error: GEMINI_API_KEY environment variable not set", file=sys.stderr)
+        print("Error: ZXM_GEMINI_API_KEY environment variable not set", file=sys.stderr)
         sys.exit(1)
     return key
 
 
+def get_api_base_url():
+    """从环境变量中获取 Gemini API 基础地址。"""
+    return os.environ.get("ZXM_GEMINI_API_BASE_URL", "https://generativelanguage.googleapis.com")
+
+
 def load_image_as_base64(path):
-    """Load an image file and return base64-encoded string."""
+    """读取图片文件并返回 Base64 编码字符串。"""
     with open(path, "rb") as f:
         return base64.b64encode(f.read()).decode()
 
 
 def detect_mime_type(path):
-    """Detect MIME type from file extension."""
+    """根据文件扩展名推断 MIME 类型。"""
     ext = Path(path).suffix.lower()
     mime_types = {
         ".png": "image/png",
@@ -47,15 +52,16 @@ def detect_mime_type(path):
 
 
 def generate_image(prompt, output_path, input_image_path=None):
-    """Generate or edit an image using Gemini API."""
+    """使用 Gemini API 生成或编辑图片。"""
     api_key = get_api_key()
-    
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/nano-banana-pro-preview:generateContent?key={api_key}"
-    
-    # Build request parts
+    api_base_url = get_api_base_url().rstrip("/")
+
+    url = f"{api_base_url}/v1beta/models/nano-banana-pro-preview:generateContent?key={api_key}"
+
+    # 构造请求内容片段
     parts = [{"text": prompt}]
-    
-    # Add input image if provided (for editing)
+
+    # 如果传入原图，则将其附加到请求中用于编辑
     if input_image_path:
         if not os.path.exists(input_image_path):
             print(f"Error: Input image not found: {input_image_path}", file=sys.stderr)
@@ -92,8 +98,8 @@ def generate_image(prompt, output_path, input_image_path=None):
     except urllib.error.URLError as e:
         print(f"URL Error: {e.reason}", file=sys.stderr)
         sys.exit(1)
-    
-    # Extract image from response
+
+    # 从响应中提取图片数据
     try:
         candidates = result.get("candidates", [])
         if not candidates:
@@ -107,8 +113,8 @@ def generate_image(prompt, output_path, input_image_path=None):
         for part in parts:
             if "inlineData" in part:
                 img_data = base64.b64decode(part["inlineData"]["data"])
-                
-                # Ensure output directory exists
+
+                # 确保输出目录存在
                 output_dir = Path(output_path).parent
                 if output_dir and not output_dir.exists():
                     output_dir.mkdir(parents=True, exist_ok=True)
@@ -131,16 +137,16 @@ def generate_image(prompt, output_path, input_image_path=None):
 
 def main():
     import argparse
-    
+
     parser = argparse.ArgumentParser(
-        description="Generate or edit images using Gemini API (pure stdlib, no dependencies)"
+        description="使用 Gemini API 生成或编辑图片（纯标准库，无额外依赖）"
     )
-    parser.add_argument("prompt", help="Image prompt or edit instructions")
-    parser.add_argument("output", help="Output file path (e.g., output.png)")
-    parser.add_argument("--input", "-i", help="Input image for editing (optional)")
-    
+    parser.add_argument("prompt", help="图片提示词或编辑指令")
+    parser.add_argument("output", help="输出文件路径（例如 output.png）")
+    parser.add_argument("--input", "-i", help="用于编辑的输入图片（可选）")
+
     args = parser.parse_args()
-    
+
     generate_image(args.prompt, args.output, args.input)
 
 
