@@ -1,0 +1,4 @@
+interface:
+  display_name: "代码工程探查"
+  short_description: "用于快速梳理陌生代码仓库的结构、主流程、接口与部署机制"
+  default_prompt: "Use $explore-codebase to analyze this repository and output a concise project overview covering architecture, flows, APIs, data models, and deployment/runtime behavior."
