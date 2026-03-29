@@ -11,7 +11,7 @@ metadata:
 
 # Gemini Image Simple
 
-使用 Google 的 **Gemini 3 Pro Image**（`gemini-3-pro-image-preview`）生成和编辑图片，这是当前画质最高的图像生成模型。
+使用纯 Python 标准库通过 Gemini API 生成和编辑图片。默认使用 `gemini-3.1-flash-image-preview-2k`，也支持通过 `--model` 参数切换到其他模型（如 `gemini-3-pro-image-preview`）。
 
 ## 为什么用这个 Skill
 
