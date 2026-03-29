@@ -1,7 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Skill(write-skill)"
-    ]
-  }
-}
