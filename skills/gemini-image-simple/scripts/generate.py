@@ -51,12 +51,16 @@ def detect_mime_type(path):
     return mime_types.get(ext, "image/png")
 
 
-def generate_image(prompt, output_path, input_image_path=None):
+DEFAULT_MODEL = "gemini-3.1-flash-image-preview-2k"
+
+
+def generate_image(prompt, output_path, input_image_path=None, model=None):
     """使用 Gemini API 生成或编辑图片。"""
     api_key = get_api_key()
     api_base_url = get_api_base_url().rstrip("/")
+    model = model or DEFAULT_MODEL
 
-    url = f"{api_base_url}/v1beta/models/gemini-3.1-flash-image-preview-2k:generateContent?key={api_key}"
+    url = f"{api_base_url}/v1beta/models/{model}:generateContent?key={api_key}"
 
     # 构造请求内容片段
     parts = [{"text": prompt}]
@@ -144,10 +148,11 @@ def main():
     parser.add_argument("prompt", help="图片提示词或编辑指令")
     parser.add_argument("output", help="输出文件路径（例如 output.png）")
     parser.add_argument("--input", "-i", help="用于编辑的输入图片（可选）")
+    parser.add_argument("--model", "-m", default=DEFAULT_MODEL, help=f"使用的模型名称（默认：{DEFAULT_MODEL}）")
 
     args = parser.parse_args()
 
-    generate_image(args.prompt, args.output, args.input)
+    generate_image(args.prompt, args.output, args.input, args.model)
 
 
 if __name__ == "__main__":

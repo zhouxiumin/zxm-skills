@@ -11,7 +11,7 @@ metadata:
 
 # Gemini Image Simple
 
-使用 Google 的 **Nano Banana Pro**（Gemini 3 Pro Image）生成和编辑图片，这是当前画质最高的图像生成模型。
+使用 Google 的 **Gemini 3 Pro Image**（`gemini-3-pro-image-preview`）生成和编辑图片，这是当前画质最高的图像生成模型。
 
 ## 为什么用这个 Skill
 
@@ -51,6 +51,12 @@ python3 {baseDir}/scripts/generate.py "your prompt" output.png
 python3 {baseDir}/scripts/generate.py "edit instructions" output.png --input source.png
 ```
 
+### 指定模型
+
+```bash
+python3 {baseDir}/scripts/generate.py "your prompt" output.png --model gemini-3-pro-image-preview
+```
+
 支持的输入格式：PNG、JPG、JPEG、GIF、WEBP
 
 ## 环境变量
@@ -62,7 +68,7 @@ python3 {baseDir}/scripts/generate.py "edit instructions" output.png --input sou
 
 ## 工作原理
 
-使用 **Nano Banana Pro**（`nano-banana-pro-preview`），也就是 Google 当前画质最高的图像生成模型：
+使用 **Gemini 3 Pro Image**（`gemini-3-pro-image-preview`），也就是 Google 当前画质最高的图像生成模型：
 - 用纯 `urllib.request` 发 HTTP 请求（不依赖 requests）
 - 用纯 `json` 做解析（stdlib）
 - 用纯 `base64` 做编码（stdlib）
@@ -71,13 +77,13 @@ python3 {baseDir}/scripts/generate.py "edit instructions" output.png --input sou
 
 ## 模型
 
-当前使用：`nano-banana-pro-preview`（也叫 Gemini 3 Pro Image）
+当前默认：`gemini-3.1-flash-image-preview-2k`
 
 其他可用模型（如有需要，可在 `generate.py` 中修改）：
-- `gemini-3-pro-image-preview` - 与 Nano Banana Pro 相同
-- `imagen-4.0-ultra-generate-001` - Imagen 4.0 Ultra
-- `imagen-4.0-generate-001` - Imagen 4.0
-- `gemini-2.5-flash-image` - 支持图像生成的 Gemini 2.5 Flash
+- `gemini-3-pro-preview` - Gemini 3 Pro（通用）
+- `gemini-3.1-flash-image-preview-0.5k` - Flash Image，0.5k 输出
+- `gemini-3.1-flash-image-preview-2k` - Flash Image，2k 输出
+- `gemini-3.1-flash-image-preview-4k` - Flash Image，4k 输出
 
 ## 示例
 
