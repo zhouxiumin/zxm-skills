@@ -100,3 +100,14 @@ python3 {baseDir}/scripts/generate.py "Convert to watercolor painting style" wat
 # 编辑：添加元素
 python3 {baseDir}/scripts/generate.py "Add a rainbow in the sky" rainbow.png --input landscape.png
 ```
+
+## 提示词参考
+
+需要写出高质量提示词时，查阅 `references/prompt-examples.md`，其中包含：
+
+- 风格转换（水彩、刺绣、青花瓷、等边 Isometric）
+- 文字特效（熔化变异文字）
+- 产品与品牌（联名图、液态 LOGO、广告海报）
+- 场景叙事（微缩场景、3D 卡通追逐）
+- 材质模拟（面包雕塑等）
+- 常用修饰词速查（光线、质感、构图、风格关键词）
