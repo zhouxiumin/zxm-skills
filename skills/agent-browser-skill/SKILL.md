@@ -1,143 +1,35 @@
 ---
 name: agent-browser
-description: Headless browser automation CLI optimized for AI agents with accessibility tree snapshots and ref-based element selection
+description: |-
+  面向 AI 智能体的无头浏览器自动化 CLI，基于无障碍树快照和 ref 元素选择。适用于自动化多步骤网页工作流、填写表单、爬取数据、登录网站、测试 Web 应用或任何程序化浏览器交互场景。当需要确定性元素选择、会话隔离或复杂 SPA 自动化时，优先使用本工具而非内置浏览器工具。若主要目标是截图、PDF 或视觉检查，则使用内置浏览器工具。
 metadata: {"clawdbot":{"emoji":"🌐","requires":{"commands":["agent-browser"]},"homepage":"https://github.com/vercel-labs/agent-browser"}}
+allowed-tools: [Bash]
 ---
 
 # Agent Browser Skill
 
-Fast browser automation using accessibility tree snapshots with refs for deterministic element selection.
+基于无障碍树快照与 ref 元素选择的快速浏览器自动化工具。
 
-## Why Use This Over Built-in Browser Tool
-
-**Use agent-browser when:**
-- Automating multi-step workflows
-- Need deterministic element selection
-- Performance is critical
-- Working with complex SPAs
-- Need session isolation
-
-**Use built-in browser tool when:**
-- Need screenshots/PDFs for analysis
-- Visual inspection required
-- Browser extension integration needed
-
-## Core Workflow
+## 核心工作流
 
 ```bash
-# 1. Navigate and snapshot
+# 1. 导航并获取快照
 agent-browser open https://example.com
 agent-browser snapshot -i --json
 
-# 2. Parse refs from JSON, then interact
+# 2. 从 JSON 解析 ref，然后交互
 agent-browser click @e2
-agent-browser fill @e3 "text"
+agent-browser fill @e3 "文本"
 
-# 3. Re-snapshot after page changes
+# 3. 页面变化后重新获取快照
 agent-browser snapshot -i --json
 ```
 
-## Key Commands
+## 常用命令
 
-### Navigation
-```bash
-agent-browser open <url>
-agent-browser back | forward | reload | close
-```
+完整命令参考（交互、等待、会话、网络、Cookie、标签页等），请查阅 [references/commands.md](references/commands.md)。
 
-### Snapshot (Always use -i --json)
-```bash
-agent-browser snapshot -i --json          # Interactive elements, JSON output
-agent-browser snapshot -i -c -d 5 --json  # + compact, depth limit
-agent-browser snapshot -s "#main" -i      # Scope to selector
-```
-
-### Interactions (Ref-based)
-```bash
-agent-browser click @e2
-agent-browser fill @e3 "text"
-agent-browser type @e3 "text"
-agent-browser hover @e4
-agent-browser check @e5 | uncheck @e5
-agent-browser select @e6 "value"
-agent-browser press "Enter"
-agent-browser scroll down 500
-agent-browser drag @e7 @e8
-```
-
-### Get Information
-```bash
-agent-browser get text @e1 --json
-agent-browser get html @e2 --json
-agent-browser get value @e3 --json
-agent-browser get attr @e4 "href" --json
-agent-browser get title --json
-agent-browser get url --json
-agent-browser get count ".item" --json
-```
-
-### Check State
-```bash
-agent-browser is visible @e2 --json
-agent-browser is enabled @e3 --json
-agent-browser is checked @e4 --json
-```
-
-### Wait
-```bash
-agent-browser wait @e2                    # Wait for element
-agent-browser wait 1000                   # Wait ms
-agent-browser wait --text "Welcome"       # Wait for text
-agent-browser wait --url "**/dashboard"   # Wait for URL
-agent-browser wait --load networkidle     # Wait for network
-agent-browser wait --fn "window.ready === true"
-```
-
-### Sessions (Isolated Browsers)
-```bash
-agent-browser --session admin open site.com
-agent-browser --session user open site.com
-agent-browser session list
-# Or via env: AGENT_BROWSER_SESSION=admin agent-browser ...
-```
-
-### State Persistence
-```bash
-agent-browser state save auth.json        # Save cookies/storage
-agent-browser state load auth.json        # Load (skip login)
-```
-
-### Screenshots & PDFs
-```bash
-agent-browser screenshot page.png
-agent-browser screenshot --full page.png
-agent-browser pdf page.pdf
-```
-
-### Network Control
-```bash
-agent-browser network route "**/ads/*" --abort           # Block
-agent-browser network route "**/api/*" --body '{"x":1}'  # Mock
-agent-browser network requests --filter api              # View
-```
-
-### Cookies & Storage
-```bash
-agent-browser cookies                     # Get all
-agent-browser cookies set name value
-agent-browser storage local key           # Get localStorage
-agent-browser storage local set key val
-```
-
-### Tabs & Frames
-```bash
-agent-browser tab new https://example.com
-agent-browser tab 2                       # Switch to tab
-agent-browser frame @e5                   # Switch to iframe
-agent-browser frame main                  # Back to main
-```
-
-## Snapshot Output Format
+## 快照输出格式
 
 ```json
 {
@@ -145,62 +37,62 @@ agent-browser frame main                  # Back to main
   "data": {
     "snapshot": "...",
     "refs": {
-      "e1": {"role": "heading", "name": "Example Domain"},
-      "e2": {"role": "button", "name": "Submit"},
-      "e3": {"role": "textbox", "name": "Email"}
+      "e1": {"role": "heading", "name": "示例域名"},
+      "e2": {"role": "button", "name": "提交"},
+      "e3": {"role": "textbox", "name": "邮箱"}
     }
   }
 }
 ```
 
-## Best Practices
+## 最佳实践
 
-1. **Always use `-i` flag** - Focus on interactive elements
-2. **Always use `--json`** - Easier to parse
-3. **Wait for stability** - `agent-browser wait --load networkidle`
-4. **Save auth state** - Skip login flows with `state save/load`
-5. **Use sessions** - Isolate different browser contexts
-6. **Use `--headed` for debugging** - See what's happening
+1. **始终使用 `-i` 标志** — 聚焦于可交互元素
+2. **始终使用 `--json`** — 便于解析
+3. **等待页面稳定** — `agent-browser wait --load networkidle`
+4. **保存认证状态** — 用 `state save/load` 跳过登录流程
+5. **使用会话隔离** — 隔离不同浏览器上下文
+6. **调试时使用 `--headed`** — 可视化查看操作过程
 
-## Example: Search and Extract
+## 示例：搜索并提取内容
 
 ```bash
 agent-browser open https://www.google.com
 agent-browser snapshot -i --json
-# AI identifies search box @e1
+# AI 识别搜索框 @e1
 agent-browser fill @e1 "AI agents"
 agent-browser press Enter
 agent-browser wait --load networkidle
 agent-browser snapshot -i --json
-# AI identifies result refs
+# AI 识别结果 ref
 agent-browser get text @e3 --json
 agent-browser get attr @e4 "href" --json
 ```
 
-## Example: Multi-Session Testing
+## 示例：多会话测试
 
 ```bash
-# Admin session
+# 管理员会话
 agent-browser --session admin open app.com
 agent-browser --session admin state load admin-auth.json
 agent-browser --session admin snapshot -i --json
 
-# User session (simultaneous)
+# 用户会话（同时运行）
 agent-browser --session user open app.com
 agent-browser --session user state load user-auth.json
 agent-browser --session user snapshot -i --json
 ```
 
-## Installation
+## 安装
 
 ```bash
 npm install -g agent-browser
-agent-browser install                     # Download Chromium
-agent-browser install --with-deps         # Linux: + system deps
+agent-browser install                     # 下载 Chromium
+agent-browser install --with-deps         # Linux：同时安装系统依赖
 ```
 
-## Credits
+## 致谢
 
-Skill created by Yossi Elkrief ([@MaTriXy](https://github.com/MaTriXy))
+Skill 由 Yossi Elkrief ([@MaTriXy](https://github.com/MaTriXy)) 创建
 
-agent-browser CLI by [Vercel Labs](https://github.com/vercel-labs/agent-browser)
+agent-browser CLI 由 [Vercel Labs](https://github.com/vercel-labs/agent-browser) 开发
