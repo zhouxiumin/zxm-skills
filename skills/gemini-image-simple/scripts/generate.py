@@ -3,8 +3,8 @@
 Gemini Image Generation - Pure Python stdlib, no dependencies.
 
 Usage:
-    python3 generate.py "prompt" output.png
-    python3 generate.py "edit instructions" output.png --input original.png
+    python generate.py "prompt" output.png
+    python generate.py "edit instructions" output.png --input original.png
 
 Requires ZXM_GEMINI_API_KEY environment variable.
 """

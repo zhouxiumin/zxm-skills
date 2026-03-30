@@ -1,7 +1,7 @@
 ---
 name: gemini-image-simple
-version: 1.1.0
-description: 使用纯 Python 标准库通过 Gemini API 生成和编辑图片。零依赖，适用于无法使用 pip/uv 的受限环境。
+version: 1.2.0
+description: 生成或编辑图片（Gemini API）。当用户要求生成图片、画图、编辑图片、图像处理时使用。零依赖纯 Python 实现，无需 pip/uv。
 metadata:
   openclaw:
     emoji: "🎨"
@@ -31,10 +31,10 @@ metadata:
 
 ```bash
 # 生成
-python /data/clawd/skills/gemini-image-simple/scripts/generate.py "A cat wearing a tiny hat" cat.png
+python {baseDir}/scripts/generate.py "A cat wearing a tiny hat" cat.png
 
 # 编辑现有图片
-python /data/clawd/skills/gemini-image-simple/scripts/generate.py "Make it sunset lighting" edited.png --input original.png
+python {baseDir}/scripts/generate.py "Make it sunset lighting" edited.png --input original.png
 ```
 
 ## 用法
@@ -68,7 +68,7 @@ python {baseDir}/scripts/generate.py "your prompt" output.png --model gemini-3-p
 
 ## 工作原理
 
-使用 **Gemini 3 Pro Image**（`gemini-3-pro-image-preview`），也就是 Google 当前画质最高的图像生成模型：
+使用 **Gemini 3.1 Flash Image**（`gemini-3.1-flash-image-preview-2k`）作为默认模型：
 - 用纯 `urllib.request` 发 HTTP 请求（不依赖 requests）
 - 用纯 `json` 做解析（stdlib）
 - 用纯 `base64` 做编码（stdlib）
@@ -103,11 +103,16 @@ python {baseDir}/scripts/generate.py "Add a rainbow in the sky" rainbow.png --in
 
 ## 提示词参考
 
-需要写出高质量提示词时，查阅 `references/prompt-examples.md`，其中包含：
+`references/` 目录下有 4 份参考文档：
 
-- 风格转换（水彩、刺绣、青花瓷、等边 Isometric）
-- 文字特效（熔化变异文字）
-- 产品与品牌（联名图、液态 LOGO、广告海报）
-- 场景叙事（微缩场景、3D 卡通追逐）
-- 材质模拟（面包雕塑等）
-- 常用修饰词速查（光线、质感、构图、风格关键词）
+| 文件 | 内容 |
+|------|------|
+| `prompt-examples.md` | 精选风格模板（水彩、刺绣、等边、文字特效等） |
+| `prompt-catalog.md` | 968 条社区案例按 18 个分类整理（插画、品牌、Logo、肖像等） |
+| `prompt-modifiers.md` | 风格/光线/构图/材质修饰词速查表 + 5 个常用后缀模板 |
+| `ppt-style-images.md` | 类 PPT / 信息图生成专项指南，含 20 种风格和幻灯片模板 |
+
+**推荐用法：**
+- 日常生图 → `prompt-modifiers.md` 挑修饰词
+- 找灵感 → `prompt-catalog.md` 按分类浏览
+- 做汇报 / 信息图 → `ppt-style-images.md`
