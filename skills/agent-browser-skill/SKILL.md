@@ -47,12 +47,16 @@ agent-browser snapshot -i --json
 
 ## 最佳实践
 
-1. **始终使用 `-i` 标志** — 聚焦于可交互元素
+1. **始终使用 `-i` 标志** — 聚焦于可交互元素，省 Token
 2. **始终使用 `--json`** — 便于解析
 3. **等待页面稳定** — `agent-browser wait --load networkidle`
 4. **保存认证状态** — 用 `state save/load` 跳过登录流程
 5. **使用会话隔离** — 隔离不同浏览器上下文
 6. **调试时使用 `--headed`** — 可视化查看操作过程
+7. **调试时加 `--annotate`** — 截图带 @ref 编号，直观定位元素
+8. **接管已登录浏览器** — 用 CDP 模式 `connect <port>` 避免重新登录
+9. **多步操作用 `batch`** — 减少进程启动开销，提升效率
+10. **找不到 ref 时用 `find`** — 按语义（文本/label/role）定位元素，无需 selector
 
 ## 示例：搜索并提取内容
 
