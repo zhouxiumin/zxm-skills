@@ -31,10 +31,10 @@ metadata:
 
 ```bash
 # 生成
-python3 /data/clawd/skills/gemini-image-simple/scripts/generate.py "A cat wearing a tiny hat" cat.png
+python /data/clawd/skills/gemini-image-simple/scripts/generate.py "A cat wearing a tiny hat" cat.png
 
 # 编辑现有图片
-python3 /data/clawd/skills/gemini-image-simple/scripts/generate.py "Make it sunset lighting" edited.png --input original.png
+python /data/clawd/skills/gemini-image-simple/scripts/generate.py "Make it sunset lighting" edited.png --input original.png
 ```
 
 ## 用法
@@ -42,19 +42,19 @@ python3 /data/clawd/skills/gemini-image-simple/scripts/generate.py "Make it suns
 ### 生成新图片
 
 ```bash
-python3 {baseDir}/scripts/generate.py "your prompt" output.png
+python {baseDir}/scripts/generate.py "your prompt" output.png
 ```
 
 ### 编辑现有图片
 
 ```bash
-python3 {baseDir}/scripts/generate.py "edit instructions" output.png --input source.png
+python {baseDir}/scripts/generate.py "edit instructions" output.png --input source.png
 ```
 
 ### 指定模型
 
 ```bash
-python3 {baseDir}/scripts/generate.py "your prompt" output.png --model gemini-3-pro-image-preview
+python {baseDir}/scripts/generate.py "your prompt" output.png --model gemini-3-pro-image-preview
 ```
 
 支持的输入格式：PNG、JPG、JPEG、GIF、WEBP
@@ -89,16 +89,16 @@ python3 {baseDir}/scripts/generate.py "your prompt" output.png --model gemini-3-
 
 ```bash
 # 风景
-python3 {baseDir}/scripts/generate.py "Misty mountains at sunrise, photorealistic" mountains.png
+python {baseDir}/scripts/generate.py "Misty mountains at sunrise, photorealistic" mountains.png
 
 # 产品图
-python3 {baseDir}/scripts/generate.py "Minimalist product photo of a coffee cup, white background" coffee.png
+python {baseDir}/scripts/generate.py "Minimalist product photo of a coffee cup, white background" coffee.png
 
 # 编辑：切换风格
-python3 {baseDir}/scripts/generate.py "Convert to watercolor painting style" watercolor.png --input photo.jpg
+python {baseDir}/scripts/generate.py "Convert to watercolor painting style" watercolor.png --input photo.jpg
 
 # 编辑：添加元素
-python3 {baseDir}/scripts/generate.py "Add a rainbow in the sky" rainbow.png --input landscape.png
+python {baseDir}/scripts/generate.py "Add a rainbow in the sky" rainbow.png --input landscape.png
 ```
 
 ## 提示词参考
