@@ -1,0 +1,4 @@
+interface:
+  display_name: "LLM Wiki"
+  short_description: "Build and maintain a personal knowledge wiki"
+  default_prompt: "Use $llm-wiki to create and maintain my knowledge base."
