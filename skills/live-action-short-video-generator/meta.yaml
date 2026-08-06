@@ -1,17 +1,10 @@
 display-name-zh: 真人短视频创作生成器
 version: 1.0.0
-tag-en: "Video & Creative Generation"
 tag-cn: "视频创作"
-complete-tags-en:
-  - "Video / Creative Generation"
-  - "Writing / Creative Generation"
 complete-tags-cn:
   - "视频 / 创作生成"
   - "写作 / 创作生成"
-summary-en: "Turn an idea or screenplay into a production-ready 3–5 minute live-action short-video package for MiniMax H3 Ref2VA."
 summary-cn: "将想法或剧本转化为可执行的 3–5 分钟真人短视频 H3 全能参考制作方案。"
-desc-en: "For creators producing 3–5 minute live-action narrative shorts with MiniMax H3 Ref2VA. The skill audits or develops screenplays, builds asset bibles and continuity plans, decomposes the film into 4–15 second generation units, writes per-shot six-section prompts, and guides batch generation, audio, editing, post, and QA."
-desc-cn: "面向使用 MiniMax H3 全能参考模式制作 3–5 分钟真人叙事短视频的创作者。Skill 会审计或生成剧本，建立角色、场景、声音与连续性资产圣经，拆分 4–15 秒生成单元，编写逐镜头六字段 Prompt，并指导批量生成、音频、剪辑、后期和质量检查。"
-author-en: MiniMax Hub User
+desc-cn: "面向使用 MiniMax H3 全能参考模式制作 3–5 分钟真人叙事短视频的创作者。本技能会审计或生成剧本，建立角色、场景、声音与连续性资产圣经，拆分 4–15 秒生成单元，编写逐镜头六字段提示词，并指导批量生成、音频、剪辑、后期和质量检查。"
 author-cn: MiniMax Hub 用户
 source: local-project

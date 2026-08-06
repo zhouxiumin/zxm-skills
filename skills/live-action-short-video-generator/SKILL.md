@@ -1,119 +1,57 @@
 ---
 name: live-action-short-video-generator
-description: Create production-ready plans and MiniMax H3 Ref2VA prompt packages for 3–5 minute live-action narrative short videos. Use when a user has a film idea or existing screenplay and needs script development, screenplay feasibility review, asset bibles, scene and shot breakdowns, continuity planning, per-shot full-reference prompts, generation logs, pilot validation, post-production planning, or troubleshooting for character, voice, action, and audio consistency. Do not treat the task as one long-video prompt: decompose it into 4–15 second generation units and assemble the finished film in post.
+description: 为 3–5 分钟真人叙事短视频制定 MiniMax H3 全能参考模式的完整制作方案。适用于从创意或现有剧本开始，完成剧本审计、资产圣经、分场分镜、连续性管理、逐镜头 Ref2VA 提示词、批量生成、音频后期、剪辑交付和质量排查。
 ---
 
-# Live-Action Short Video Generator
+# 真人短视频创作生成器
 
-Use this skill to turn an idea or screenplay into a manageable live-action short-video production package for MiniMax H3 Ref2VA. Produce Chinese project-management documents and English structured H3 Prompt sections; preserve user-supplied dialogue, lyrics, and visible text in the original language.
+使用本技能将一个想法或现有剧本转化为可执行的 3–5 分钟真人短视频生产包。核心原则是：H3 每次只能生成 4–15 秒，长片必须拆成多个独立生成单元，再通过后期剪辑、调色、配音、混音和字幕完成。
 
-## Read Bundled References
+## 使用内置参考文件
 
-Read these files from this skill directory, never from the project root or an external URL:
+只读取技能目录下的文件，不引用项目根目录或外部网页：
 
-1. `references/真人短视频创作指南.md` — complete 3–5 minute production workflow, templates, continuity, audio, post, and QA.
-2. `references/VIDEO_PROMPT_WRITING_GUIDE_ref_en.md` — authoritative Ref2VA six-section format, label roles, retention markers, and dialogue rules.
-3. `references/MiniMax-H3-prompting.md` — compact mode selection and final compliance rules.
+1. `references/真人短视频创作指南.md`：完整制作流程、模板、资产、后期和质量检查。
+2. `references/全参考模式提示词编写指南.md`：Ref2VA 六字段、标签、关系标记和对白规范。
+3. `references/MiniMax-H3-提示词规范.md`：全能参考模式的硬限制与最终合规检查。
 
-Always read the first reference. Read the Ref2VA specification before writing or reviewing a structured Prompt, and read the compact rules when checking limits or deciding whether a reference is a frame, subject, source video, or audio source.
+需要编写或审查 Ref2VA 提示词时必须读取第二份文件；需要核对硬限制和模式时读取第三份文件。
 
-## Non-Negotiable Constraints
+## 强制约束
 
-- Treat the 3–5 minute film as a sequence of independent 4–15 second H3 generation units, not one Prompt.
-- Keep each Prompt under 7000 characters and each generation duration within 4–15 seconds.
-- Ref2VA input limits are at most 9 images, 3 videos, and 3 audio clips per request; video/audio totals are each at most 15 seconds, and mixed files total at most 12. Audio cannot be the sole input.
-- Keep model name, resolution, aspect ratio, and API settings outside the structured Prompt body.
-- Never mix Base I2VA/FL2VA/L2VA alignment instructions with the Ref2VA six-section schema.
-- Use exact field order: `subject_definitions`, `summary`, `retention_analysis`, `detailed_description`, `overall_soundscape`, `non_diegetic_music`.
-- Keep all structural Prompt prose and labels in English. Put exact user dialogue/lyrics only inside `<d>[Language] ...</d>` and visible scene text in English double quotes.
-- Do not invent an `<Audio N>` merely because a reference video contains sound. Define audio only when a signal is copied or referenced.
-- Obtain authorization for real-person likeness, voice, music, brands, and other protected material before production.
+- 单条生成单元为 4–15 秒，单条提示词不超过 7000 字符。
+- Ref2VA 每次最多 9 张图片、3 段视频、3 段音频，混合文件总数最多 12 个；音频不能单独输入。
+- 不要把整部 3–5 分钟剧本放入一条提示词。
+- 模型名、分辨率、画幅和 API 参数放在生成配置中，不放入结构化提示词正文。
+- Ref2VA 不得混入 I2VA、FL2VA、L2VA 的基础模式对齐指令。
+- 提示词六字段必须严格按 `subject_definitions`、`summary`、`retention_analysis`、`detailed_description`、`overall_soundscape`、`non_diegetic_music` 排列。
+- 结构正文、标签和关系标记使用英文；对白、歌词和可见文字保留原文。
+- 真人脸部和声音、音乐、品牌及其他受保护素材必须先确认授权。
 
-## Decide the Task Path
+## 工作流
 
-### A. User has only an idea
+1. **判断输入**：只有想法时先给出 3 个故事方向；已有剧本时先做时长、角色、场景、对白和复杂动作审计。
+2. **锁定剧本**：建立创作简报、节拍表、场景表，朗读计时，明确入口状态和离开状态；不要在剧本未锁时写提示词。
+3. **建立资产圣经**：记录角色脸型、发型、服装版本、声音、场景布局、光线、道具、动作参考和禁止变化项。项目编号（如 `角色01`）与提示词内标签分开管理。
+4. **拆分镜头**：每条生成单元通常只承担一个叙事目的、一个主要动作、一个情绪变化、一个主要运镜和一段自然对白。保留稳定开头和结尾供剪辑。
+5. **做 30–60 秒样片**：先测最难的对白近景、双人互动、动作道具和连续性切镜；样片通过后再批量生成。
+6. **编写逐镜提示词包**：配置与上传映射放在提示词外；正文按 Ref2VA 六字段组织；每镜重新声明必要的人物和场景特征。
+7. **批量生成和记录**：按场景、服装、角色组合或灯光分批；每次只改一个主要失败变量；保存版本与批准末帧。
+8. **后期合成**：粗剪、补镜、画面锁定、调色、对白清理、连续环境声、统一配乐、字幕和交付质量检查。
 
-1. Extract target audience, genre, tone, duration, format, characters, locations, conflict, ending, required dialogue/text, exclusions, and available assets.
-2. If the idea is underspecified, propose three materially different story directions with a one-line premise, character goal, obstacle, turning point, ending, and H3 production risks.
-3. After a direction is chosen, create a beat sheet, scene list, time budget, and asset-risk list. Do not write H3 Prompts yet.
-4. Write and time the screenplay, then lock the story before asset production.
+## 关键决策
 
-### B. User already has a screenplay
+- 3–5 分钟成片通常需要约 20–50 个可用生成单元，关键镜头需要多版本候选。
+- 复杂动作优先拆成反应镜头、道具插入镜头和结果镜头。
+- 角色图只定义人物时放进 `<Subject N>` 来源，不要误当具体 `<Picture N>` 锚点。
+- 参考视频中的可见动作属于 `<Subject N>`；整段编辑、续接、镜头运动或节奏关系才使用 `<Video N>`。
+- 参考视频包含声音不会自动创建 `<Audio N>`；只有复制或参考音轨时才定义音频标签。
+- 项目角色编号与 `(Sx)` 不同；`(Sx)` 按当前生成单元的首次发声顺序分配并在该单元内复用。
+- 长片通常将 `non_diegetic_music: N/A` 留给大多数 H3 镜头，统一配乐放到后期，避免每条素材的背景音乐重启。
 
-1. Audit actual read-through duration against 3–5 minutes.
-2. Preserve the story's core characters, conflict, turning points, ending, and user-provided dialogue unless the user approves changes.
-3. Flag overlong dialogue, uncontrolled locations/cast, complex physical interactions, mass action, and continuity hazards.
-4. Convert the screenplay into a scene table with purpose, entry state, exit state, duration, characters, props, sound, and risk.
-5. Ask for confirmation only when a proposed simplification changes story meaning; otherwise apply conservative production simplifications.
+## Ref2VA 输出契约
 
-## Build the Project Package
-
-When the user asks for a full project package, create a project folder under `<project-root>/<编号-中文项目名>/` with:
-
-```text
-00-项目管理/创作简报.md
-00-项目管理/制作计划.md
-00-项目管理/连续性总表.md
-01-剧本/故事大纲.md
-01-剧本/场景剧本.md
-01-剧本/锁定剧本.md
-02-资产圣经/角色圣经.md
-02-资产圣经/场景圣经.md
-02-资产圣经/服装道具圣经.md
-02-资产圣经/视觉风格圣经.md
-02-资产圣经/声音圣经.md
-03-参考素材/人物/
-03-参考素材/场景/
-03-参考素材/服装道具/
-03-参考素材/动作运镜/
-03-参考素材/声音/
-04-分镜与镜头表/场景表.md
-04-分镜与镜头表/镜头表.md
-05-H3提示词/场01/
-06-生成原片/场01/
-07-批准素材/
-08-后期工程/剪辑/
-08-后期工程/音频/
-08-后期工程/字幕/
-09-交付/
-生成记录.csv
-```
-
-Use objective names such as `场01_镜003_版本02_批准.mp4`; do not use ambiguous `最终版2` filenames. Keep project IDs (`角色01`, `场景02`, `道具03`) separate from Prompt-local `<Subject N>` and `(Sx)` labels.
-
-## Asset Bible Rules
-
-- Define each important character's face, hair, body proportions, costume version, accessories, normal expression, voice, and prohibited changes.
-- Prepare a clear identity set: face close-up, three-quarter or half-body view, current costume, and any special makeup or injury state. Upload only the 1–5 assets relevant to the current shot; do not upload conflicting references.
-- Define stable scene layout, entrances, windows, furniture, props, lighting direction, color temperature, time, weather, and permitted camera positions.
-- Track costume and prop state per scene: wet/dry, open/closed, held hand, damage, blood, dirt, and continuity change point.
-- Use short clean voice samples of 2–15 seconds with no music or overlapping speakers. Distinguish audio `fully_copy`, `partially_copy`, and `reference`.
-- Use action/camera reference clips only for a clear role. Visible action reused from a video belongs in `<Subject N>`; `<Video N>` is for whole-video editing, continuation, or temporal structure.
-- Reuse approved frames as concrete continuity anchors, but periodically re-anchor to master character and scene references to prevent drift.
-
-## Shot Breakdown
-
-Separate scene, editorial shot, and generation unit. For live-action narrative work, prefer one main shot per generation unit. Each unit should normally contain one narrative purpose, one primary action/state change, one emotion change, one primary camera move, and one natural dialogue span.
-
-Use 4–6 seconds for reactions/inserts, 6–9 for a sentence or simple action, 9–12 for a continuous performance, and 12–15 only for one uncomplicated long action. Reserve stable head and tail states when possible so the editor has roughly 0.5–1 second of usable handle.
-
-For every shot record:
-
-```text
-shot_id, scene, final_duration, generation_duration,
-narrative_purpose, start_state, end_state, shot_size/composition,
-subjects/positions, environment/lighting, action_chain,
-camera_move, dialogue, synchronized_sound, references,
-continuity_constraints, edit_in, edit_out, status
-```
-
-Check eyelines, screen direction, prop hand, costume state, wetness/injury, lighting, emotional progression, and the previous/next pose. If an interaction is physically unstable, split it into reaction → insert → result instead of forcing one complex generation.
-
-Before the full batch, create a 30–60 second pilot containing the hardest close dialogue, a two-person interaction, an action/prop shot, and a continuity cut. Lock the character, voice, scene, and camera method only after the pilot passes.
-
-## Write a Ref2VA Prompt Package
-
-For each generation unit, keep generation settings and upload mapping outside the Prompt, then write the six sections below in exact order:
+编写提示词前先建立素材映射，然后按以下顺序输出：
 
 ```text
 subject_definitions:
@@ -135,54 +73,39 @@ non_diegetic_music:
 ...
 ```
 
-### Reference labels
+`detailed_description` 先用一两句英文确定真人媒介、风格、光线和色彩，再按构图、主体位置、环境、动作状态、运镜、对白/同步声音和结束状态写当前镜头。生成类任务通常目标为 350–500 个英文词，但完整时间线优先于凑字数。
 
-- `<Subject N>`: reusable visible person, object, environment, costume, action, pose, expression, or effect.
-- `<Picture N>`: a concrete first frame, keyframe, last frame, composition anchor, or storyboard reference. Do not create a standalone Picture when the image only supplies a subject.
-- `<Video N>`: whole-video source for editing, continuation, camera movement, cuts, rhythm, or temporal structure. Visible content taken from it still needs a Subject label.
-- `<Audio N>`: copied or referenced audio signal, voice timbre, dialogue/lyrics, music, beat, or sound texture. Video and Audio labels are independently numbered.
+使用固定关系标记：
 
-Keep each label's meaning identical across all six sections. Do not introduce new labels in `summary`. For a referenced subject who physically speaks, write `<Subject N> (Sx)`; assign `(Sx)` by first actual vocal event in the current target clip and reuse it within that clip. Do not write speaker IDs in `retention_analysis`.
+- 可见内容：`fully_preserved`、`partially_preserved`、`attribute_transfer`、`weak_reference`。
+- 音频：`fully_copy`、`partially_copy`、`reference`、`weak_reference`。
 
-### Section rules
+对白写 `<d>[Language] 原文</d>`；画外音写 `says in an off-screen voiceover` 并声明嘴唇闭合；跨切镜对白使用 `<scenetrans>`；结尾截断使用 `<cutoff>`。可见字幕、招牌和界面文案放入英文双引号，后期制作通常更可靠。
 
-1. `subject_definitions`: one line per separately tracked subject, frame, source video, or audio role. State source asset and concrete features.
-2. `summary`: one short paragraph beginning with fixed task types such as `[reference generation + keyframe completion + audio reference]`. Use `video editing` or `video continuation` only when the source video is actually edited or continued.
-3. `retention_analysis`: one line per defined label. Visible markers are `fully_preserved`, `partially_preserved`, `attribute_transfer`, `weak_reference`; audio markers are `fully_copy`, `partially_copy`, `reference`, `weak_reference`.
-4. `detailed_description`: establish style before `[Shot 1]`; describe composition, subject position, environment, lighting, action/state changes, camera, synchronized sound, dialogue, and the exact points where references apply. Generation descriptions normally target 350–500 English words, but prioritize a complete timeline over word count.
-5. `overall_soundscape`: 1–4 English sentences for ambience, physical action sounds, and non-verbal human sounds. Do not repeat dialogue or diegetic music.
-6. `non_diegetic_music`: 1–3 English sentences for audience-only score through instrumentation, tempo/rhythm, and dynamic development; use `N/A` when no such score is wanted.
+## 项目输出
 
-Use natural camera language such as `push in`, `pull out`, `pan`, `truck`, `tilt`, `pedestal`, `arc shot`, `tracking shot`, or `static shot`, optionally with `with small/large amplitude` and `at slow/fast speed`. Do not stack camera labels.
+完整项目应在 `<项目根目录>/<编号-中文项目名>/` 下建立：
 
-For dialogue:
+```text
+00-项目管理/
+01-剧本/
+02-资产圣经/
+03-参考素材/
+04-分镜与镜头表/
+05-H3提示词/
+06-生成原片/
+07-批准素材/
+08-后期工程/
+09-交付/
+生成记录.csv
+```
 
-- Put only the original words and language tag inside `<d>`.
-- Use `says in an off-screen voiceover` and state that on-screen lips remain completely closed for voiceover.
-- Use `<scenetrans>` at both ends when a line crosses a cut, and explicitly state that audio continues across the cut.
-- Use `<cutoff>` when the video ending truncates speech.
-- Put visible signs, subtitles, labels, and UI text in English double quotes and preserve exact wording.
+每条镜头至少包含：生成配置、上传素材映射、提示词、版本记录、缺陷、结论和下一步修改。交付前检查故事时长、人物与道具连续性、口型、对白原文、声音接缝、字幕、输出规格、授权与归档。
 
-Do not add Base keyframe alignment lines to a Ref2VA Prompt. If an approved previous frame is the exact opening or ending anchor, define it as `<Picture N>` and state `the shot begins from <Picture N>` or `the shot ends on <Picture N>` in `detailed_description`.
+## 交互规则
 
-## Long-Form Audio and Post
-
-Recommend locking dialogue timing before final generation. For 3–5 minute narrative work, use `non_diegetic_music: N/A` for most clips and add a continuous score in post; independent BGM per clip usually restarts its tone and rhythm at every cut. Keep room tone and environmental beds continuous across edits. Generate subtitles, titles, logos, and dense readable text in post whenever possible.
-
-After approved clips exist, guide the user through rough cut, missing insert/reaction shots, picture lock, optional high-resolution regeneration, color matching, dialogue cleanup, ambience, music, subtitles, rights review, and final delivery. Do not spend high-cost finishing work on candidates before picture lock.
-
-## Generation Logs and QA
-
-Maintain `生成记录.csv` with shot ID, version, date, duration, Prompt path, uploaded references, identity, action, composition, lip sync, voice, sound, continuity, verdict, defect, and next change. Change one major variable per retry.
-
-Reject or repair clips with identity drift, outfit/prop changes, broken hands or teeth, impossible physics, discontinuous eyelines, incorrect dialogue, unstable lip sync, bad text, audio resets, or no usable edit handle. Salvage with early cuts, inserts, J-cuts/L-cuts, environmental bridges, reframing, and sound masking before regenerating an entire sequence.
-
-Before delivery, verify story length, hook, scene purpose, continuity, dialogue fidelity, audio transitions, subtitles, frame/audio specifications, rights, and archive completeness. Preserve a clean master, subtitle version, project file, Prompt files, reference mapping, and generation log.
-
-## Response Contract
-
-When the user asks for a full project, deliver or create the project documents in stages and identify the current gate: creative brief, screenplay, asset bible, shot list, pilot, generation batch, rough cut, or delivery. Do not silently change a locked story element.
-
-When the user asks for one shot, return a self-contained Prompt package with generation settings, upload mapping, and the exact six-field English Ref2VA Prompt. Keep management notes in Chinese and dialogue/text in the original language.
-
-When required information is missing, ask only for information that changes the story, asset role, duration, dialogue, or production path. Make conservative assumptions for cosmetic details and record them in the project documents.
+- 用户只有想法时，先形成创作简报和方向，不直接跳到最终提示词。
+- 用户已有剧本时，保留核心剧情和原始对白；会改变故事意义的删改先说明。
+- 用户要求完整项目时，按阶段门禁交付并标明当前阶段，不静默修改已锁定内容。
+- 用户只要一个镜头时，返回配置、上传映射和独立的六字段 Ref2VA 提示词；六字段正文按模型要求使用英文。
+- 缺少信息时只询问会改变故事、资产职责、时长、对白或制作路径的问题；化妆、色调等次要细节可做保守假设并记录。
