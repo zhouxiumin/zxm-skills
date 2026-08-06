@@ -30,9 +30,9 @@ description: 对陌生代码工程进行系统化探索、逆向梳理与文档�
    - 数据模型：`schema.sql`、`prisma/`、`migrations/`、`models/`、`entities/`
 3. 识别主入口、进程类型和上下游依赖：Web 服务、Worker、定时任务、CLI、SDK、单体、微服务、插件式工程等。
 
-优先使用仓库约定的快速搜索工具：
+优先使用仓库约定的快速搜索命令行工具：
 
-- 文件搜索：`fd`
+- 文件搜索：`fd` / `fdfind`
 - 文本搜索：`rg`
 - 结构化代码搜索：`sg` / `ast-grep`
 
