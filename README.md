@@ -43,7 +43,7 @@ zxm-skills/
 ### 内容创作与生成
 
 - **novel-writer** — 专业小说写作助手，支持都市/现实、异世界穿越都市、现代穿越异世界都市等题材。全流程：灵感与大纲生成、角色与世界观管理、正文续写与扩写、风格润色与优化。
-- **frontend-slides** — 零依赖、动画丰富的 HTML 演示文稿生成器。单文件内联 CSS/JS，无需 npm 或构建工具。支持从 PowerPoint 转换或从零创建，固定 16:9 舞台。
+- **frontend-slides** — 零依赖、动画丰富的 HTML 演示文稿生成器。单文件内联 CSS/JS，无需 npm 或构建工具。支持从 PowerPoint 转换或从零创建，固定 16:9 舞台。（来源：[zarazhangrui/frontend-slides](https://github.com/zarazhangrui/frontend-slides)）
 - **gemini-image-simple** — 通过 Gemini API 生成和编辑图片，纯 Python 标准库实现，无需 `pip`/`uv`，可在容器或受限环境运行。支持 `--model` 切换模型。
 - **live-action-short-video-generator** — 为 3–5 分钟真人叙事短视频制定 MiniMax H3 全能参考模式的完整制作方案：剧本审计、资产圣经、分场分镜、连续性管理、逐镜头 Ref2VA 提示词、批量生成、音频后期、剪辑交付与质量排查。
 - **write-skill** — 去除文本中的 AI 生成痕迹。检测并修复夸大象征、宣传性语言、模糊归因、破折号滥用、AI 词汇、否定式排比等模式，使文字更自然。
