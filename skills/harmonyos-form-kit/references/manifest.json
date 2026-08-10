@@ -1,0 +1,567 @@
+{
+  "source": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/form-kit",
+  "fetchedAt": "2026-08-10T04:11:03.426Z",
+  "pageCount": 51,
+  "pages": [
+    {
+      "slug": "form-kit",
+      "title": "Form Kit（卡片开发服务）",
+      "path": [
+        "Form Kit（卡片开发服务）"
+      ],
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/form-kit",
+      "file": "pages/form-kit.md"
+    },
+    {
+      "slug": "formkit-overview",
+      "title": "Form Kit简介",
+      "path": [
+        "Form Kit简介"
+      ],
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/formkit-overview",
+      "file": "pages/formkit-overview.md"
+    },
+    {
+      "slug": "arkts-ui",
+      "title": "ArkTS卡片开发（推荐）",
+      "path": [
+        "ArkTS卡片开发（推荐）"
+      ],
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui",
+      "file": "pages/arkts-ui.md"
+    },
+    {
+      "slug": "arkts-form-overview",
+      "title": "ArkTS卡片概述",
+      "path": [
+        "ArkTS卡片开发（推荐）",
+        "ArkTS卡片概述"
+      ],
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-form-overview",
+      "file": "pages/arkts-form-overview.md"
+    },
+    {
+      "slug": "arkts-ui-widget-creation",
+      "title": "创建ArkTS卡片",
+      "path": [
+        "ArkTS卡片开发（推荐）",
+        "创建ArkTS卡片"
+      ],
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-creation",
+      "file": "pages/arkts-ui-widget-creation.md"
+    },
+    {
+      "slug": "arkts-ui-widget-configuration",
+      "title": "配置ArkTS卡片的配置文件",
+      "path": [
+        "ArkTS卡片开发（推荐）",
+        "配置ArkTS卡片的配置文件"
+      ],
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-configuration",
+      "file": "pages/arkts-ui-widget-configuration.md"
+    },
+    {
+      "slug": "arkts-ui-widget-lifecycle",
+      "title": "管理ArkTS卡片生命周期",
+      "path": [
+        "ArkTS卡片开发（推荐）",
+        "管理ArkTS卡片生命周期"
+      ],
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-lifecycle",
+      "file": "pages/arkts-ui-widget-lifecycle.md"
+    },
+    {
+      "slug": "arkts-ui-widget-process",
+      "title": "ArkTS卡片进程模型",
+      "path": [
+        "ArkTS卡片开发（推荐）",
+        "ArkTS卡片进程模型"
+      ],
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-process",
+      "file": "pages/arkts-ui-widget-process.md"
+    },
+    {
+      "slug": "arkts-ui-widget",
+      "title": "ArkTS卡片提供方开发指导",
+      "path": [
+        "ArkTS卡片开发（推荐）",
+        "ArkTS卡片提供方开发指导"
+      ],
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget",
+      "file": "pages/arkts-ui-widget.md"
+    },
+    {
+      "slug": "arkts-ui-widget-page",
+      "title": "ArkTS卡片UI界面开发",
+      "path": [
+        "ArkTS卡片开发（推荐）",
+        "ArkTS卡片提供方开发指导",
+        "ArkTS卡片UI界面开发"
+      ],
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-page",
+      "file": "pages/arkts-ui-widget-page.md"
+    },
+    {
+      "slug": "arkts-ui-widget-page-overview",
+      "title": "ArkTS卡片界面开发概述",
+      "path": [
+        "ArkTS卡片开发（推荐）",
+        "ArkTS卡片提供方开发指导",
+        "ArkTS卡片UI界面开发",
+        "ArkTS卡片界面开发概述"
+      ],
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-page-overview",
+      "file": "pages/arkts-ui-widget-page-overview.md"
+    },
+    {
+      "slug": "arkts-ui-widget-page-animation",
+      "title": "ArkTS卡片为组件添加动效",
+      "path": [
+        "ArkTS卡片开发（推荐）",
+        "ArkTS卡片提供方开发指导",
+        "ArkTS卡片UI界面开发",
+        "ArkTS卡片为组件添加动效"
+      ],
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-page-animation",
+      "file": "pages/arkts-ui-widget-page-animation.md"
+    },
+    {
+      "slug": "arkts-ui-widget-page-custom-drawing",
+      "title": "ArkTS卡片使用画布组件绘制自定义图形",
+      "path": [
+        "ArkTS卡片开发（推荐）",
+        "ArkTS卡片提供方开发指导",
+        "ArkTS卡片UI界面开发",
+        "ArkTS卡片使用画布组件绘制自定义图形"
+      ],
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-page-custom-drawing",
+      "file": "pages/arkts-ui-widget-page-custom-drawing.md"
+    },
+    {
+      "slug": "arkts-ui-widget-load-custom-font",
+      "title": "ArkTS卡片使用自定义字体",
+      "path": [
+        "ArkTS卡片开发（推荐）",
+        "ArkTS卡片提供方开发指导",
+        "ArkTS卡片UI界面开发",
+        "ArkTS卡片使用自定义字体"
+      ],
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-load-custom-font",
+      "file": "pages/arkts-ui-widget-load-custom-font.md"
+    },
+    {
+      "slug": "arkts-ui-widget-interaction",
+      "title": "ArkTS卡片页面刷新",
+      "path": [
+        "ArkTS卡片开发（推荐）",
+        "ArkTS卡片提供方开发指导",
+        "ArkTS卡片页面刷新"
+      ],
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-interaction",
+      "file": "pages/arkts-ui-widget-interaction.md"
+    },
+    {
+      "slug": "arkts-ui-widget-interaction-overview",
+      "title": "ArkTS卡片页面刷新概述",
+      "path": [
+        "ArkTS卡片开发（推荐）",
+        "ArkTS卡片提供方开发指导",
+        "ArkTS卡片页面刷新",
+        "ArkTS卡片页面刷新概述"
+      ],
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-interaction-overview",
+      "file": "pages/arkts-ui-widget-interaction-overview.md"
+    },
+    {
+      "slug": "arkts-ui-widget-active-refresh",
+      "title": "ArkTS卡片主动刷新",
+      "path": [
+        "ArkTS卡片开发（推荐）",
+        "ArkTS卡片提供方开发指导",
+        "ArkTS卡片页面刷新",
+        "ArkTS卡片主动刷新"
+      ],
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-active-refresh",
+      "file": "pages/arkts-ui-widget-active-refresh.md"
+    },
+    {
+      "slug": "arkts-ui-widget-passive-refresh",
+      "title": "ArkTS卡片被动刷新",
+      "path": [
+        "ArkTS卡片开发（推荐）",
+        "ArkTS卡片提供方开发指导",
+        "ArkTS卡片页面刷新",
+        "ArkTS卡片被动刷新"
+      ],
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-passive-refresh",
+      "file": "pages/arkts-ui-widget-passive-refresh.md"
+    },
+    {
+      "slug": "arkts-ui-widget-update-by-push",
+      "title": "ArkTS卡片Push刷新",
+      "path": [
+        "ArkTS卡片开发（推荐）",
+        "ArkTS卡片提供方开发指导",
+        "ArkTS卡片页面刷新",
+        "ArkTS卡片Push刷新"
+      ],
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-update-by-push",
+      "file": "pages/arkts-ui-widget-update-by-push.md"
+    },
+    {
+      "slug": "arkts-ui-widget-image-update",
+      "title": "刷新本地图片和网络图片",
+      "path": [
+        "ArkTS卡片开发（推荐）",
+        "ArkTS卡片提供方开发指导",
+        "ArkTS卡片页面刷新",
+        "刷新本地图片和网络图片"
+      ],
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-image-update",
+      "file": "pages/arkts-ui-widget-image-update.md"
+    },
+    {
+      "slug": "arkts-ui-widget-update-by-status",
+      "title": "根据卡片状态刷新不同内容",
+      "path": [
+        "ArkTS卡片开发（推荐）",
+        "ArkTS卡片提供方开发指导",
+        "ArkTS卡片页面刷新",
+        "根据卡片状态刷新不同内容"
+      ],
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-update-by-status",
+      "file": "pages/arkts-ui-widget-update-by-status.md"
+    },
+    {
+      "slug": "arkts-ui-widget-event",
+      "title": "ArkTS卡片页面交互",
+      "path": [
+        "ArkTS卡片开发（推荐）",
+        "ArkTS卡片提供方开发指导",
+        "ArkTS卡片页面交互"
+      ],
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-event",
+      "file": "pages/arkts-ui-widget-event.md"
+    },
+    {
+      "slug": "arkts-ui-widget-event-overview",
+      "title": "ArkTS卡片页面交互概述",
+      "path": [
+        "ArkTS卡片开发（推荐）",
+        "ArkTS卡片提供方开发指导",
+        "ArkTS卡片页面交互",
+        "ArkTS卡片页面交互概述"
+      ],
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-event-overview",
+      "file": "pages/arkts-ui-widget-event-overview.md"
+    },
+    {
+      "slug": "arkts-ui-widget-event-router",
+      "title": "卡片跳转到应用页面（router事件）",
+      "path": [
+        "ArkTS卡片开发（推荐）",
+        "ArkTS卡片提供方开发指导",
+        "ArkTS卡片页面交互",
+        "卡片跳转到应用页面（router事件）"
+      ],
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-event-router",
+      "file": "pages/arkts-ui-widget-event-router.md"
+    },
+    {
+      "slug": "arkts-ui-widget-event-call",
+      "title": "卡片拉起应用UIAbility到后台（call事件）",
+      "path": [
+        "ArkTS卡片开发（推荐）",
+        "ArkTS卡片提供方开发指导",
+        "ArkTS卡片页面交互",
+        "卡片拉起应用UIAbility到后台（call事件）"
+      ],
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-event-call",
+      "file": "pages/arkts-ui-widget-event-call.md"
+    },
+    {
+      "slug": "arkts-ui-widget-event-formextensionability",
+      "title": "卡片传递消息给应用（message事件）",
+      "path": [
+        "ArkTS卡片开发（推荐）",
+        "ArkTS卡片提供方开发指导",
+        "ArkTS卡片页面交互",
+        "卡片传递消息给应用（message事件）"
+      ],
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-event-formextensionability",
+      "file": "pages/arkts-ui-widget-event-formextensionability.md"
+    },
+    {
+      "slug": "arkts-ui-widget-event-uiability",
+      "title": "通过router或call事件刷新卡片内容",
+      "path": [
+        "ArkTS卡片开发（推荐）",
+        "ArkTS卡片提供方开发指导",
+        "ArkTS卡片页面交互",
+        "通过router或call事件刷新卡片内容"
+      ],
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-event-uiability",
+      "file": "pages/arkts-ui-widget-event-uiability.md"
+    },
+    {
+      "slug": "arkts-ui-widget-edit",
+      "title": "ArkTS卡片编辑",
+      "path": [
+        "ArkTS卡片开发（推荐）",
+        "ArkTS卡片提供方开发指导",
+        "ArkTS卡片编辑"
+      ],
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-edit",
+      "file": "pages/arkts-ui-widget-edit.md"
+    },
+    {
+      "slug": "arkts-ui-widget-event-formeditextensionability-overview",
+      "title": "ArkTS卡片编辑概述",
+      "path": [
+        "ArkTS卡片开发（推荐）",
+        "ArkTS卡片提供方开发指导",
+        "ArkTS卡片编辑",
+        "ArkTS卡片编辑概述"
+      ],
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-event-formeditextensionability-overview",
+      "file": "pages/arkts-ui-widget-event-formeditextensionability-overview.md"
+    },
+    {
+      "slug": "arkts-ui-widget-add",
+      "title": "应用内请求卡片加桌",
+      "path": [
+        "ArkTS卡片开发（推荐）",
+        "ArkTS卡片提供方开发指导",
+        "应用内请求卡片加桌"
+      ],
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-add",
+      "file": "pages/arkts-ui-widget-add.md"
+    },
+    {
+      "slug": "arkts-ui-widget-open-formmanager",
+      "title": "应用内拉起卡片管理加桌",
+      "path": [
+        "ArkTS卡片开发（推荐）",
+        "ArkTS卡片提供方开发指导",
+        "应用内请求卡片加桌",
+        "应用内拉起卡片管理加桌"
+      ],
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-open-formmanager",
+      "file": "pages/arkts-ui-widget-open-formmanager.md"
+    },
+    {
+      "slug": "arkts-ui-lockscreen-form",
+      "title": "ArkTS锁屏卡片",
+      "path": [
+        "ArkTS卡片开发（推荐）",
+        "ArkTS卡片提供方开发指导",
+        "ArkTS锁屏卡片"
+      ],
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-lockscreen-form",
+      "file": "pages/arkts-ui-lockscreen-form.md"
+    },
+    {
+      "slug": "arkts-ui-lockscreen-form-development",
+      "title": "锁屏卡片开发指导",
+      "path": [
+        "ArkTS卡片开发（推荐）",
+        "ArkTS卡片提供方开发指导",
+        "ArkTS锁屏卡片",
+        "锁屏卡片开发指导"
+      ],
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-lockscreen-form-development",
+      "file": "pages/arkts-ui-lockscreen-form-development.md"
+    },
+    {
+      "slug": "arkts-ui-transparent-backplate-form",
+      "title": "ArkTS背板透明卡片",
+      "path": [
+        "ArkTS卡片开发（推荐）",
+        "ArkTS卡片提供方开发指导",
+        "ArkTS背板透明卡片"
+      ],
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-transparent-backplate-form",
+      "file": "pages/arkts-ui-transparent-backplate-form.md"
+    },
+    {
+      "slug": "arkts-ui-transparent-backplate-form-development",
+      "title": "背板透明卡片开发指导",
+      "path": [
+        "ArkTS卡片开发（推荐）",
+        "ArkTS卡片提供方开发指导",
+        "ArkTS背板透明卡片",
+        "背板透明卡片开发指导"
+      ],
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-transparent-backplate-form-development",
+      "file": "pages/arkts-ui-transparent-backplate-form-development.md"
+    },
+    {
+      "slug": "arkui-ui-standby-form-development",
+      "title": "ArkTS待机屏保卡片开发指导",
+      "path": [
+        "ArkTS卡片开发（推荐）",
+        "ArkTS卡片提供方开发指导",
+        "ArkTS待机屏保卡片开发指导"
+      ],
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkui-ui-standby-form-development",
+      "file": "pages/arkui-ui-standby-form-development.md"
+    },
+    {
+      "slug": "arkts-ui-liveform",
+      "title": "互动卡片开发",
+      "path": [
+        "ArkTS卡片开发（推荐）",
+        "互动卡片开发"
+      ],
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-liveform",
+      "file": "pages/arkts-ui-liveform.md"
+    },
+    {
+      "slug": "arkts-ui-liveform-overview",
+      "title": "互动卡片概述",
+      "path": [
+        "ArkTS卡片开发（推荐）",
+        "互动卡片开发",
+        "互动卡片概述"
+      ],
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-liveform-overview",
+      "file": "pages/arkts-ui-liveform-overview.md"
+    },
+    {
+      "slug": "arkts-ui-liveform-funinteraction-development",
+      "title": "趣味交互类型互动卡片开发指导",
+      "path": [
+        "ArkTS卡片开发（推荐）",
+        "互动卡片开发",
+        "趣味交互类型互动卡片开发指导"
+      ],
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-liveform-funinteraction-development",
+      "file": "pages/arkts-ui-liveform-funinteraction-development.md"
+    },
+    {
+      "slug": "arkts-ui-liveform-sceneanimation",
+      "title": "场景动效类型互动卡片",
+      "path": [
+        "ArkTS卡片开发（推荐）",
+        "互动卡片开发",
+        "场景动效类型互动卡片"
+      ],
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-liveform-sceneanimation",
+      "file": "pages/arkts-ui-liveform-sceneanimation.md"
+    },
+    {
+      "slug": "arkts-ui-liveform-sceneanimation-overview",
+      "title": "场景动效类型互动卡片概述",
+      "path": [
+        "ArkTS卡片开发（推荐）",
+        "互动卡片开发",
+        "场景动效类型互动卡片",
+        "场景动效类型互动卡片概述"
+      ],
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-liveform-sceneanimation-overview",
+      "file": "pages/arkts-ui-liveform-sceneanimation-overview.md"
+    },
+    {
+      "slug": "arkts-ui-liveform-sceneanimation-development",
+      "title": "场景动效类型互动卡片开发指导",
+      "path": [
+        "ArkTS卡片开发（推荐）",
+        "互动卡片开发",
+        "场景动效类型互动卡片",
+        "场景动效类型互动卡片开发指导"
+      ],
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-liveform-sceneanimation-development",
+      "file": "pages/arkts-ui-liveform-sceneanimation-development.md"
+    },
+    {
+      "slug": "arkts-ui-best-practice",
+      "title": "ArkTS卡片最佳实践",
+      "path": [
+        "ArkTS卡片开发（推荐）",
+        "ArkTS卡片最佳实践"
+      ],
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-best-practice",
+      "file": "pages/arkts-ui-best-practice.md"
+    },
+    {
+      "slug": "arkts-ui-music-service-form",
+      "title": "音乐服务卡片",
+      "path": [
+        "ArkTS卡片开发（推荐）",
+        "ArkTS卡片最佳实践",
+        "音乐服务卡片"
+      ],
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-music-service-form",
+      "file": "pages/arkts-ui-music-service-form.md"
+    },
+    {
+      "slug": "form-refresh-and-data-interaction",
+      "title": "卡片更新与数据交互",
+      "path": [
+        "ArkTS卡片开发（推荐）",
+        "ArkTS卡片最佳实践",
+        "卡片更新与数据交互"
+      ],
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/form-refresh-and-data-interaction",
+      "file": "pages/form-refresh-and-data-interaction.md"
+    },
+    {
+      "slug": "arkts-ui-widget-adapt-faq",
+      "title": "ArkTS卡片适配常见问题",
+      "path": [
+        "ArkTS卡片开发（推荐）",
+        "ArkTS卡片适配常见问题"
+      ],
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-adapt-faq",
+      "file": "pages/arkts-ui-widget-adapt-faq.md"
+    },
+    {
+      "slug": "form-js-ui",
+      "title": "JS卡片开发",
+      "path": [
+        "JS卡片开发"
+      ],
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/form-js-ui",
+      "file": "pages/form-js-ui.md"
+    },
+    {
+      "slug": "js-ui-widget-overview",
+      "title": "JS卡片概述",
+      "path": [
+        "JS卡片开发",
+        "JS卡片概述"
+      ],
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/js-ui-widget-overview",
+      "file": "pages/js-ui-widget-overview.md"
+    },
+    {
+      "slug": "js-ui-widget-development",
+      "title": "JS卡片开发指导（Stage模型）",
+      "path": [
+        "JS卡片开发",
+        "JS卡片开发指导（Stage模型）"
+      ],
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/js-ui-widget-development",
+      "file": "pages/js-ui-widget-development.md"
+    },
+    {
+      "slug": "widget-development-fa",
+      "title": "JS卡片开发指导（FA模型）",
+      "path": [
+        "JS卡片开发",
+        "JS卡片开发指导（FA模型）"
+      ],
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/widget-development-fa",
+      "file": "pages/widget-development-fa.md"
+    },
+    {
+      "slug": "form-glossary",
+      "title": "Form Kit术语",
+      "path": [
+        "Form Kit术语"
+      ],
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/form-glossary",
+      "file": "pages/form-glossary.md"
+    }
+  ]
+}

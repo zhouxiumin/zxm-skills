@@ -1,0 +1,4 @@
+interface:
+  display_name: "HarmonyOS Form Kit"
+  short_description: "华为官方 HarmonyOS Form Kit 卡片开发参考与排错"
+  default_prompt: "使用 $harmonyos-form-kit 结合官方资料分析并实现这个 HarmonyOS 卡片任务。"
